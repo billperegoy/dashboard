@@ -1,0 +1,19 @@
+<section class="phx-hero">
+  <h1>Activities</h1>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Duration</th>
+      <th>Calories</th>
+    </tr>
+  <%= for activity <- @activities do %>
+    <tr>
+    <td><%= activity.started_at %></td>
+    <td><%= activity.notes %></td>
+    <td><%= activity.total_time_in_seconds %></td>
+    <td><%= activity.total_calories %></td>
+    </tr>
+  <% end %>
+  </table>
+</section>
