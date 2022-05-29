@@ -6,6 +6,7 @@
       <th>Date</th>
       <th>Name</th>
       <th>Duration</th>
+      <th>Distance</th>
       <th>Calories</th>
     </tr>
   <%= for activity <- @activities do %>
@@ -13,6 +14,7 @@
     <td><%= activity.started_at %></td>
     <td><%= activity.notes %></td>
     <td><%= activity.total_time_in_seconds %></td>
+    <td><%= activity.distance_in_meters %></td>
     <td><%= activity.total_calories %></td>
     </tr>
   <% end %>

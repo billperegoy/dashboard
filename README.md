@@ -17,3 +17,8 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
+
+To export workouts
+https://www.ifit.com/web-api/workouts/bulk-export-workouts
+{startDate: "2021-06-01T00:00:00.000Z", endDate: "2021-06-30T00:00:00.000Z"}
