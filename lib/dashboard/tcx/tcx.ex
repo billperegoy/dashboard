@@ -7,6 +7,8 @@ defmodule Dashboard.Tcx do
   alias Dashboard.Tcx.Activity
   alias Dashboard.Account.User
 
+  @download_dir "/Users/bill/Downloads"
+
   def create_activity(attrs) do
     %Activity{}
     |> Activity.changeset(attrs)
@@ -18,16 +20,20 @@ defmodule Dashboard.Tcx do
     |> Repo.all()
   end
 
-  def import_all do
-    dir = "/Users/bill/iFit/iFitWorkouts_2022_02_01_to_2022_05_02_8af7b7c9"
+  def import_from_zip(path_to_zip) do
+    {:ok, extracted_files} =
+      path_to_zip
+      |> String.to_charlist()
+      |> :zip.unzip(cwd: String.to_charlist(@download_dir))
 
-    {:ok, files} = File.ls(dir)
+    import_tcx(extracted_files)
+  end
 
+  def import_tcx(files) do
     files
-    |> Enum.each(fn file ->
-      path = dir <> "/" <> file
-
+    |> Enum.each(fn path ->
       {:ok, _} = parse_one(path)
+      File.rm(path)
     end)
   end
 

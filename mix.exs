@@ -51,7 +51,7 @@ defmodule Dashboard.MixProject do
       {:sweet_xml, "~> 0.7.1"},
       {:swoosh, "~> 1.3"},
       {:telemetry_metrics, "~> 0.6"},
-      {:telemetry_poller, "~> 1.0"}
+      {:telemetry_poller, "~> 1.0"},
     ]
   end
 
