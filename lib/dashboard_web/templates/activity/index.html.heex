@@ -11,10 +11,10 @@
     </tr>
   <%= for activity <- @activities do %>
     <tr>
-    <td><%= activity.started_at %></td>
+    <td><%= format_date(activity.started_at) %></td>
     <td><%= activity.notes %></td>
-    <td><%= activity.total_time_in_seconds %></td>
-    <td><%= activity.distance_in_meters %></td>
+    <td><%= format_duration(activity.total_time_in_seconds) %></td>
+    <td><%= format_distance(activity.distance_in_meters) %></td>
     <td><%= activity.total_calories %></td>
     </tr>
   <% end %>

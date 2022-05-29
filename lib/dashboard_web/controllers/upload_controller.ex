@@ -9,9 +9,11 @@ defmodule DashboardWeb.UploadController do
     uploads_dir = Application.get_env(:dashboard, :uploads_directory)
     upload_path = uploads_dir <> "/" <> filename
     :ok = File.cp(tmp_path, upload_path)
-    Dashboard.Tcx.import_from_zip(upload_path)
+
+    %{"path" => upload_path}
+    |> Dashboard.Tcx.Worker.new(queue: :default)
+    |> Oban.insert()
 
     redirect(conn, to: "/")
-    text(conn, "ok")
   end
 end

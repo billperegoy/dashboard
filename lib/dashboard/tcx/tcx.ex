@@ -7,8 +7,6 @@ defmodule Dashboard.Tcx do
   alias Dashboard.Tcx.Activity
   alias Dashboard.Account.User
 
-  @download_dir "/Users/bill/Downloads"
-
   def create_activity(attrs) do
     %Activity{}
     |> Activity.changeset(attrs)
@@ -21,10 +19,12 @@ defmodule Dashboard.Tcx do
   end
 
   def import_from_zip(path_to_zip) do
+    uploads_dir = Application.get_env(:dashboard, :uploads_directory)
+
     {:ok, extracted_files} =
       path_to_zip
       |> String.to_charlist()
-      |> :zip.unzip(cwd: String.to_charlist(@download_dir))
+      |> :zip.unzip(cwd: String.to_charlist(uploads_dir))
 
     import_tcx(extracted_files)
   end
