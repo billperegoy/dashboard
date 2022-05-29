@@ -1,5 +1,6 @@
 <section class="phx-hero">
   <h1>Activities</h1>
+  <%= button("Import File", to: Routes.upload_path(@conn, :new), method: :get) %>
   <table>
     <tr>
       <th>Date</th>

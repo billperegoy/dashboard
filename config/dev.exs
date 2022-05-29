@@ -28,6 +28,8 @@ config :dashboard, DashboardWeb.Endpoint,
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
+config :dashboard, uploads_directory: "/Users/bill/uploads_dev"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

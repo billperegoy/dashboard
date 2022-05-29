@@ -18,6 +18,7 @@ defmodule DashboardWeb.Router do
     pipe_through :browser
 
     get "/", ActivityController, :index
+    resources "/uploads", UploadController, only: [:new, :create]
   end
 
   # Other scopes may use custom stacks.
